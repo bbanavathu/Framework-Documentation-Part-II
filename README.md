@@ -123,8 +123,8 @@ An enum is a set of symbolic names or members bound to unique, constant values. 
        
 ### class Wrapper():
 
-
-
+This is a wrapper class which, it wraps an object which it then proxies unnhandled getattr calls to
+Wrapper functions can be used as an interface to adapt to the existing codes, so as to save you from changing your current codes back and forth. 
 
 
 
