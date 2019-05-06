@@ -3,23 +3,9 @@
 Classes run a means of bundling data and functionality together. Creating a new class creates a new type of object, allowing new instances of that type to be made. Each class instance can have attributes attached to it for maintaining its state. Class instances can also have methods defined by its class for modifying its state.
 
 ### Let us see some of the classes 
-1. 	class Frozen():
-2.	class SurroundData(Frozen):
-3.	class Surround(ABC):
-4.	class AllowedTypes(Enum):
-5.	class Wrapper():
-6.	class Stage(ABC):
-7.	class LinterStage(Stage):
-8.	class CheckData(LinterStage):
-9.	class CheckFiles(LinterStage):
-10.	class CheckDirectories(LinterStage):
-11.	class ProjectData(SurroundData):
-12.	class Linter():
-13.	class Config(Mapping):
-14.	class HelloStage(Stage):
-15.	class BasicData(SurroundData):
-16.	class TestSurround(unittest.TestCase):
-17.	class TestConfig(unittest.TestCase):
+1.  class Config(Mapping):
+2.  Class LinterStage(Stage):
+3. 
 
 ### Class Config(Mapping): 
 
@@ -50,14 +36,32 @@ class Config(Mapping):
 This class helps in verifying the quality of the code and analyse source code for potential erros,
 lint is a tool which is used to mark the source code with some suspicious and non-structural.
 
-**These Classes Add support for the RUnning Project specific tasks**
+**These Classes Add support for the Running Project specific tasks**
 
+1. For the Lint process to execute and check for errors and add warning if bugs are found,
 
+       class LinterStage(Stage):
+  
+2. To check the Data in the linter stage
+    
+       class CheckData(LinterStage):
+         
+3. To check the Surround project files
+ 
+       class CheckFiles(LinterStage):
+         
+4. To check the Directories and validating Surround's directory structure  
 
+       class CheckDirectories(LinterStage):
+         
+5. To check the Project Details, i.e `project_structure`, `project_root`, `project_name`. 
 
+       class ProjectData(SurroundData):
 
+6. To check the Surround `files`, `Data`, `Directories`
 
-
+       class Linter():
+       linter_checks = Surround([CheckDirectories(), CheckFiles(), CheckData()])
 
 
 
