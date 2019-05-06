@@ -126,5 +126,12 @@ An enum is a set of symbolic names or members bound to unique, constant values. 
 This is a wrapper class which, it wraps an object which it then proxies unnhandled getattr calls to
 Wrapper functions can be used as an interface to adapt to the existing codes, so as to save you from changing your current codes back and forth. 
 
-
+        def __init__(self, surround, type_of_uploaded_object=None):
+        self.surround = surround
+        self.actual_type_of_uploaded_object = None
+        if type_of_uploaded_object:
+            self.type_of_uploaded_object = type_of_uploaded_object
+        else:
+            self.type_of_uploaded_object = AllowedTypes.JSON
+        self.surround.init_stages()
 
