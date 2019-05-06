@@ -32,7 +32,7 @@ This class helps in Identifying the different paths for output, data, models, Im
 3.	creating instrument trade lists
 
 Use `models` paths to maintain consistency
-```javascript
+
 class Config(Mapping):
 
     def __init__(self, project_root=None):
