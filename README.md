@@ -3,10 +3,15 @@
 Classes run a means of bundling data and functionality together. Creating a new class creates a new type of object, allowing new instances of that type to be made. Each class instance can have attributes attached to it for maintaining its state. Class instances can also have methods defined by its class for modifying its state.
 
 ## Let us see some of the classes 
+
 1.  class Config(Mapping):
 2.  class LinterStage(Stage):
 3.  class Stage(ABC):
 4.  class Frozen(): 
+5.  class SurroundData(Frozen):
+6.  class Surround(ABC):
+7.  class AllowedTypes(Enum):
+8.  class Wrapper():
 
 ### class Config(Mapping): 
 
@@ -81,7 +86,43 @@ It replaces and Stores intermediate data from each stage in the pipeline to the 
         
 ### class Frozen(): 
 
-This class can toggle the ability of adding new attributes. 
+This class can toggle the ability of adding new attributes. `Frozen` classes are, then, classes which can't be changed after they've been created. 
+
+In order to have a fully `frozen` class, all attributes of the class should hold immutable values too.
+
+     """
+    __isfrozen = False
+    def __setattr__(self, key, value):
+        if self.__isfrozen and not hasattr(self, key):
+            raise TypeError("%r is a frozen object" % self)
+        object.__setattr__(self, key, value)
+        
+### class SurroundData(Frozen):
+
+Stores the data to be passed between each stage in Surround. Considering the frozen data as different stages inside the Surround are responsible for setting the attributes.
+
+         """
+        stage_metadata = []
+        execution_time = None
+        errors = []
+        warnings = []
+        
+### class Surround(ABC):
+
+The collections module has some concrete classes that derive from ABCs; these can be further derived. In addition, the collections.abc sub-module has some ABCs that can be used to test whether a class or instance gives a particular interface.
+
+       def __init__(self, surround_stages=None, module=None):
+         self.surround_stages = surround_stages
+
+### class AllowedTypes(Enum):
+
+An enum is a set of symbolic names or members bound to unique, constant values. Within an enumeration, the members can be compared by identity, and the enum itself can be repeated over and over.
+
+       JSON = ["application/json"]
+       FILE = ["file"]
+       
+### class Wrapper():
+
 
 
 
