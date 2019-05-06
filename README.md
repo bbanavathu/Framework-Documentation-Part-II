@@ -21,7 +21,7 @@ This class helps in Identifying the different paths for output, data, models, Im
 
 1.	creating continuous return series for Futures instruments
 2.	creating time series of percentage allocations to tradeable contracts
-3.	creating instrument trade lists
+3.	creating instrument trade lists.
 
 Use `models` paths to maintain consistency
 
