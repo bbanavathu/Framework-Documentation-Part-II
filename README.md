@@ -2,12 +2,13 @@
 #### This part is dedicated to explain the different **Classes** of Surround.
 Classes run a means of bundling data and functionality together. Creating a new class creates a new type of object, allowing new instances of that type to be made. Each class instance can have attributes attached to it for maintaining its state. Class instances can also have methods defined by its class for modifying its state.
 
-### Let us see some of the classes 
+## Let us see some of the classes 
 1.  class Config(Mapping):
-2.  Class LinterStage(Stage):
-3. 
+2.  class LinterStage(Stage):
+3.  class Stage(ABC):
+4.  class Frozen(): 
 
-### Class Config(Mapping): 
+### class Config(Mapping): 
 
 This class helps in Identifying the different paths for output, data, models, Importing the location.
 
@@ -31,12 +32,12 @@ class Config(Mapping):
             self._storage["data_path"] = os.path.join(project_root, "data")
             self._storage["models_path"] = os.path.join(project_root, "models")
             
-### Class LinterStage(Stage):
+### class LinterStage(Stage):
 
 This class helps in verifying the quality of the code and analyse source code for potential erros,
 lint is a tool which is used to mark the source code with some suspicious and non-structural.
 
-**These Classes Add support for the Running Project specific tasks**
+**These classes Add support for the Running Project specific tasks**
 
 1. For the Lint process to execute and check for errors and add warning if bugs are found,
 
@@ -78,8 +79,9 @@ It replaces and Stores intermediate data from each stage in the pipeline to the 
      def my_abstract_(cls, ...):
         ...
         
-### class Frozen():  
-     
+### class Frozen(): 
+
+This class can toggle the ability of adding new attributes. 
 
 
 
