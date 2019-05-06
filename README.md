@@ -63,6 +63,23 @@ lint is a tool which is used to mark the source code with some suspicious and no
        class Linter():
        linter_checks = Surround([CheckDirectories(), CheckFiles(), CheckData()])
 
+### class Stage(ABC):
+
+It replaces and Stores intermediate data from each stage in the pipeline to the Dump output of each stage.
+             
+    class Stage(ABC):
+    def dump_output(self, surround_data, config):
+    
+**For Example:**
+   
+     from abc import ABC, abstractmethod
+     class C(ABC):
+     @abstractmethod
+     def my_abstract_(cls, ...):
+        ...
+        
+### class Frozen():  
+     
 
 
 
