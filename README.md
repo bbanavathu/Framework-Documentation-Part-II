@@ -21,7 +21,7 @@ Classes run a means of bundling data and functionality together. Creating a new 
 16.	class TestSurround(unittest.TestCase):
 17.	class TestConfig(unittest.TestCase):
 
-#### Class Config(Mapping): 
+### Class Config(Mapping): 
 
 This class helps in Identifying the different paths for output, data, models, Importing the location.
 
@@ -45,7 +45,7 @@ class Config(Mapping):
             self._storage["data_path"] = os.path.join(project_root, "data")
             self._storage["models_path"] = os.path.join(project_root, "models")
             
-#### Class LinterStage(Stage):
+### Class LinterStage(Stage):
 
 This class helps in verifying the quality of the code and analyse source code for potential erros,
 lint is a tool which is used to mark the source code with some suspicious and non-structural.
