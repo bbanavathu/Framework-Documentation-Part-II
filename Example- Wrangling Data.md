@@ -18,7 +18,7 @@ There are 4 Functions which are used in Wranglingdata(stage)
        self.processed_data.dropna(inplace=True)
 
 This function clean the row containing empty field, that means this function deletes the row in the data folder if it contains any empty
-field. 
+field. Remove the row with the missing value of any attributes.
 
 ##### categorical_team_to_ordinal_value
         def categorical_team_to_ordinal_value(self, team):
@@ -33,19 +33,20 @@ rank of each team.
 
 ##### normalize_data
 
-       def normalize_data(self):
-       columns_to_standardize = [['HomeTeam', 'AwayTeam', 'HS', 'AS', 'HST', 'AST', 'HF', 'AF', 'HC', 'AC', 'HR', 'AR']]
+     def normalize_data(self):
+     columns_to_standardize = [['HomeTeam', 'AwayTeam', 'HS', 'AS', 'HST', 'AST', 'HF', 'AF', 'HC', 'AC', 'HR', 'AR']]
 
        for each_col in columns_to_standardize:
           self.processed_data[each_col] = normalize(self.processed_data[each_col])
 
-This function normalizes the features on the columns_to_normalize. that means in the data obtained for data prediction the values for      
-some of the matches are too high and for some its too low,to make it between (0-1) the data is normailzed.
+This function normalizes the features on the columns_to_normalize. that means in the data obtained for data prediction the values for    some of the matches are too high and for some its too low,to make it between (0-1) the data is normailzed. This process can be useful if you plan to use a quadratic form such as the dot-product or any other kernel to quantify the similarity of any pair of samples.
 
 ##### shift_column
 
         def shift_column(self):
          temp_store = self.processed_data.pop('FTR')
          self.processed_data['FTR'] = temp_store
+         
+  This function shift column from middle to the last of the dataframe, for the training and testing purpose where 30 of it is testing and 70% is training. The training set contains a known output and the model learns on this data in order to be generalize to other data later on. We have the test dataset (or subset) in order to test our model's prediction on this subset.
 
 
