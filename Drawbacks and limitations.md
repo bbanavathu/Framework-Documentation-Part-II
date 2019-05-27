@@ -2,7 +2,7 @@
 ###### Let’s see 2 main drawbacks of surround
 
 #### Importing packages:
-When you create a python File you need to import class or function there are 2 or 3 methods to import the error was it got stuck while managing when tried with command line using python 3, it throws excess. Necessity of use of operate function in every class is yet to be clarified.
+When you create a python File with class or function and you need to use it somewhere in another file,then you must important the package that you want to use,  when tried with command line using python 3, it throws excess. Necessity of use of operate function in every class is yet to be clarified.
 #### Plotting graphs
 While plotting the graphs It was not directly popping-up new window rather it was showing error, but for surround data visualization is very important, Its drawback is in that its default style isn't always visually appealing, and it can be complex to make the adjustments according to the data.
 #### Conclusion
